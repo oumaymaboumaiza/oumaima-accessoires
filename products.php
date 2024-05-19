@@ -71,63 +71,63 @@
         <div class="product">
             <img src="image97.jpeg" alt="Produit 2">
             <h3>handbag</h3>
-            <p>Prix : 120 TND</p>
+            <p>Prix : 150 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div>
 
         <div class="product">
             <img src="image96.jpeg" alt="Produit 3">
             <h3>handbag</h3>
-           <p>Prix : 132 TND</p>
+           <p>Prix : 280 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div>
 
         <div class="product">
             <img src="image1.jpeg" alt="Produit 4">
             <h3>handbag</h3>
-            <p>Prix : 112 TND</p>
+            <p>Prix : 100 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div>
 
         <div class="product">
             <img src="image6.jpeg" alt="Produit 5">
             <h3>ring</h3>
-            <p>Prix : 34 TND</p>
+            <p>Prix : 68 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div>
 
         <div class="product">
             <img src="image95.jpeg" alt="Produit 6">
             <h3>ring</h3>
-            <p>Prix : 20 TND</p>
+            <p>Prix : 75 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div>
 
         <div class="product">
             <img src="image94.jpeg" alt="Produit 7">
             <h3>ring</h3>
-            <p>Prix : 29 TND</p>
+            <p>Prix : 65 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div>
 
         <div class="product">
             <img src="image10.jpeg" alt="Produit 8">
             <h3>earring</h3>
-           <p>Prix : 45 TND</p>
+           <p>Prix : 47 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div>
 
         <div class="product">
             <img src="image11.jpeg" alt="Produit 9">
             <h3>earring</h3>
-            <p>Prix : 50 TND</p>
+            <p>Prix : 78 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 
         <div class="product">
             <img src="image12.jpeg" alt="Produit 10">
             <h3>earring</h3>
-           <p>Prix : 67 TND</p>
+           <p>Prix : 50 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 
@@ -135,7 +135,7 @@
             <img src="image50.jpeg" alt="Produit 11">
             <h3>scarf</h3>
             <p>Description du produit 2.</p>
-            <p>Prix : 20 TND</p>
+            <p>Prix : 80 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 
@@ -144,21 +144,21 @@
         <div class="product">
             <img src="image51.jpeg" alt="Produit 13">
             <h3>scarf</h3>
-            <p>Prix : 41 TND</p>
+            <p>Prix : 100 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 
         <div class="product">
             <img src="image52.jpeg" alt="Produit 14">
             <h3>scarf</h3>
-            <p>Prix : 76 TND</p>
+            <p>Prix : 78 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 
         <div class="product">
             <img src="image53.jpeg" alt="Produit 15">
             <h3>scarf</h3>
-            <p>Prix : 56 TND</p>
+            <p>Prix : 150 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 
@@ -166,7 +166,7 @@
         <div class="product">
             <img src="image60.jpeg" alt="Produit 16">
             <h3>necklace</h3>
-            <p>Prix : 55 TND</p>
+            <p>Prix : 80 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 
@@ -174,7 +174,7 @@
         <div class="product">
             <img src="image61.jpeg" alt="Produit 17">
             <h3>necklace</h3>
-            <p>Prix : 65 TND</p>
+            <p>Prix : 76 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 
@@ -182,7 +182,7 @@
         <div class="product">
             <img src="image62.jpeg" alt="Produit 18">
             <h3>necklace</h3>
-            <p>Prix : 52 TND</p>
+            <p>Prix : 56 TND</p>
             <a href="formulaire.php">Acheter</a>
         </div> 
 

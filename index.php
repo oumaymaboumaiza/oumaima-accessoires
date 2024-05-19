@@ -278,7 +278,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">sac à main </a>
+                      <a href="#">handbag </a>
                     </h3>
                     <span class="item-price text-primary">280 TND</span>
                   </div>
@@ -296,7 +296,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">sac à main </a>
+                      <a href="#">handbag </a>
                     </h3>
                     <span class="item-price text-primary">100 TND</span>
                   </div>
@@ -314,7 +314,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">sac à main</a>
+                      <a href="#">handbag</a>
                     </h3>
                     <span class="item-price text-primary">180 TND</span>
                   </div>
@@ -332,7 +332,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">sac à main</a>
+                      <a href="#">handbag</a>
                     </h3>
                     <span class="item-price text-primary">150 TND</span>
                   </div>
@@ -399,7 +399,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">bague</a>
+                      <a href="#">ring</a>
                     </h3>
                     <span class="item-price text-primary">68 TND</span>
                   </div>
@@ -417,7 +417,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">bague</a>
+                      <a href="#">ring</a>
                     </h3>
                     <span class="item-price text-primary">75 TND</span>
                   </div>
@@ -435,7 +435,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">bague</a>
+                      <a href="#">ring</a>
                     </h3>
                     <span class="item-price text-primary">65 TND</span>
                   </div>
@@ -591,7 +591,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">rings </a>
+                      <a href="#">scarf </a>
                     </h3>
                     <span class="item-price text-primary">80 TND</span>
                   </div>
@@ -609,7 +609,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">rings </a>
+                      <a href="#">scarf </a>
                     </h3>
                     <span class="item-price text-primary">100 TND</span>
                   </div>
@@ -627,7 +627,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">rings</a>
+                      <a href="#">scarf </a>
                     </h3>
                     <span class="item-price text-primary">78 TND</span>
                   </div>
@@ -645,7 +645,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">rings</a>
+                      <a href="#">scarf </a>
                     </h3>
                     <span class="item-price text-primary">150 TND</span>
                   </div>

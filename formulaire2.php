@@ -1,134 +1,165 @@
-<?php
-// Configuration de la base de données
-$servername = "localhost";
-$username = "nom_utilisateur";
-$password = "mot_de_passe";
-$dbname = "nom_base_de_donnees";
+<?php 
+include 'db_connect.php';
+print_r($_GET);
 
-// Connexion à la base de données
-$conn = new mysqli($servername, $username, $password, $dbname);
+$is_location = isset($_GET['location']) and $_GET['location'] != '';
+$is_search = isset( $_GET['search']) and $_GET['search'] != '';
 
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+
+if ($is_location && $is_search){
+   // search and filter;
+  $location = $_GET['location'];
+  $search = $_GET['search'];
+  $sql = "SELECT * FROM `services` WHERE `location` = '$location' AND `title` LIKE '%$search%';";
+
+}elseif ($is_location){
+  // filter
+  $location = $_GET['location'];
+  $sql = "SELECT * FROM `services` WHERE `location` ='$location';";
+}elseif ($is_search){
+  // search
+  $search = $_GET['search'];
+  $sql = "SELECT * FROM `services` WHERE `title` LIKE '%$search%';";
+}else {
+  // show all products
+  $sql = "SELECT * FROM `services`";
 }
 
-// Vérification si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = $_POST['nom'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-    $telephone = $_POST['telephone'];
-    $adresse = $_POST['adresse'];
-    $quantite = $_POST['quantite'];
-    $produit = $_POST['produit'];
+$result = $conn->query($sql);
 
-    // Préparation de la requête SQL avec des déclarations préparées
-    $stmt = $conn->prepare("INSERT INTO contacts (nom, email, message, telephone, adresse, quantite, produit) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssis", $nom, $email, $message, $telephone, $adresse, $quantite, $produit);
-
-    // Exécution de la requête SQL
-    if ($stmt->execute()) {
-        echo "Enregistrement réussi.";
-    } else {
-        echo "Erreur: " . $stmt->error;
-    }
-
-    // Fermeture de la déclaration préparée
-    $stmt->close();
-}
-
-// Fermeture de la connexion
-$conn->close();
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de Commande</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type="submit"] {
-            background-color: #575f58;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        input[type="submit"]:hover {
-            background-color: #565c56;
-        }
-    </style>
+    <title>Services</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+
+    <link rel="stylesheet" href="Services.css"/> 
 </head>
 <body>
-    <h1>Formulaire de Commande</h1>
-    <div class="container">
-        <form action="traitement.php" method="post">
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" placeholder="entrez votre nom ici..." required>
+    
+  <body style="font-family:Verdana;"> 
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" align="center">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="Juge.css"> </a> 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"> </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.php">Services </a>
+              <ul class="dropdown-menu"></ul>
+            <li class="nav-item">
+              <a class="nav-link" href="Blog.html">Blog </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Contact.php">Contact </a> 
 
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" placeholder="entrez votre email ici..." required>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                About
+              </a>
 
-            <label for="telephone">Téléphone :</label>
-            <input type="tel" id="telephone" name="telephone" placeholder="entrez votre telephone ici..." required>
-
-            <label for="adresse">Adresse :</label>
-            <textarea id="adresse" name="adresse" rows="4" cols="50" required></textarea>
-
-            <label for="produit">Produit :</label>
-            <select id="produit" name="produit" required>
-                <option value="accessoire1">handbags</option>
-                <option value="accessoire2">rings</option>
-                <option value="accessoire3">earrings</option>
-                <option value="accessoire4">scarves</option>
-            </select>
-
-            <label for="quantite">Quantité :</label>
-            <input type="number" id="quantite" name="quantite" min="1" required>
-
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" rows="4" cols="50"></textarea>
-
-            <input type="submit" value="Commander">
-        </form>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="our work.html"> Our work</a></li>
+                <li><a class="dropdown-item" href="help.html">Help</a></li>
+              </ul>
+            </li>
+           
+          </ul> 
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div> 
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="juge.jpg" class="Element style" alt="juge 2.jpg">
+        </div>
+        <div class="carousel-item">
+          <img src="juge.jpg" class="Element style" alt="besniss.jpg">
+        </div>
+        <div class="carousel-item">
+          <img src="juge.jpg" class="Element style" alt="juge.jpg">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden" color="black">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>   
+      <div data-bs-theme="dark">
+        <button type="button" class="btn-close" aria-label="Close"></button>
+        <button type="button" class="btn-close" disabled aria-label="Close"></button>
+      </div>
+    </div>
+    <center>
+      <button type="button" class="btn btn-primary">Discover the team</button>
+    </center>
+    <form actio="." method="GET">
+      <div class="mb-3">
+        <label for="search" class="form-label">Search</label>
+        <input type="text" name ="search" class="form-control" id="search">
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" name="location" class="form-control" id="location">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="row mt-5">
+      <?php 
+        if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+         ?>
+         
+      <div class="col-sm-6 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-row mb-3">
+              <img src="<?= $row["image_src"] ?>" width="48%" height="48%" alt="<?= $row["title"] ?>"/>
+              <div> 
+                <h3 class="card-title"><?= $row["title"] ?> </h3>
+                <p class="card-text"><?= $row["description"] ?></p>     
+              </div>
+            </div>
+            <button type="button" class="btn btn-dark">See more</button>
+          </div>
+        </div>
+      </div>
+         
+         
+         <?php }
+        } else {
+          echo "0 results";
+        }
+      ?>
     </div>
 </body>
 </html>
+
+
+<?php
+$conn->close();
+?>

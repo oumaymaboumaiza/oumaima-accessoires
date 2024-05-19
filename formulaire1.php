@@ -1,20 +1,23 @@
 <?php
-// Configuration de la base de données
+// la Connexion à la base de données
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "formulaire";
+$dbname = "oumaima-accessoires";
 
-// Connexion à la base de données
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+$conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
+$conn->setAttribute(PDO::ATTER_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//echo "la connexion a ete bien eatblie";
 }
 
-// Vérification si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+catch(PDOException $e){
+    echo "a connexion a echoue: " . $e->getMessage();
+}
+
+if (isset($_post['Commander']))
+{
     $nom = $_POST['nom'];
     $email = $_POST['email'];
     $message = $_POST['message'];
@@ -23,18 +26,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quantite = $_POST['quantite'];
     $produit = $_POST['produit'];
 
+    $sql=("INSERT INTO `formulaire`(`nom`, `email`, `message`, `telephone`, `adresse`, `quantity`, `produit`) VALUES(:nom, :email, :message, :telephone, :adresse, : quantity, :produit)";
+    $stmt = $conn->prepare($sql);
 
-
-    // Préparation de la requête SQL
-    $sql = "INSERT INTO contacts (nom, email, message, telephone, adresse, quantite, produit) VALUES ('$nom', '$email', '$message', '$telephone', '$adresse','$quantite','$produit')";
-
-    // Exécution de la requête SQL
-    if ($conn->query($sql) === TRUE) {
-        echo "Enregistrement réussi.";
-    } else {
-        echo "Erreur: " . $sql . "<br>" . $conn->error;
-    }
+    $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':message', $message);
+    $stmt->bindParam(':telephone', $telephone);
+    $stmt->bindParam(':adresse', $adresse);
+    $stmt->bindParam(':quantity', $quantity);
+    $stmt->bindParam(':produit', $produit);
+    $stmt->execute();
 }
+
 
 // Fermeture de la connexion
 $conn->close();
@@ -47,7 +51,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de Commande</title>
+    <title>laire de Commande</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -105,7 +109,7 @@ $conn->close();
 </head>
 
 <body>
-    <h1>Formulaire de Commande</h1>
+    <h1>formulaire de Commande</h1>
     <div class="container">
         <form action="traitement.php" method="post">
             <label for="nom">Nom :</label>
@@ -124,15 +128,15 @@ $conn->close();
 
             <label for="produit">Produit :</label>
             <select id="produit" name="produit" required>
-                <option value="accessoire1">handbags</option>
-                <option value="accessoire2">rings</option>
-                <option value="accessoire3">earrings</option>
-                <option value="accessoire3">scarves</option>
+                <option value="handbags">handbags</option>
+                <option value="rings">rings</option>
+                <option value="earrings">earrings</option>
+                <option value="scarves">scarves</option>
 
             </select><br><br>
 
-            <label for="quantite">Quantité :</label>
-            <input type="number" id="quantite" name="quantite" min="1" required><br><br>
+            <label for="quantity">quantity :</label>
+            <input type="number" id="quantity" name="quantity" min="1" required><br><br>
 
             <label for="message">Message :</label><br>
             <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
